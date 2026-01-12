@@ -71,9 +71,9 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             <div className="absolute inset-0 bg-sky-400/20 rounded-full blur-2xl animate-pulse"></div>
             <div className="relative bg-white/5 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-[0_0_60px_rgba(56,189,248,0.15)]">
                 <img 
-                    src="https://i.ibb.co.com/9HzZKk4Z/Screenshot-2026-01-12-103512.png" 
-                    alt="Logo KMH" 
-                    className="w-20 h-20 md:w-28 md:h-28 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" 
+                    src="https://i.ibb.co.com/k6cGgdMH/logo-dn.png" 
+                    alt="Logo Dies Natalis KMH" 
+                    className="w-32 h-32 md:w-52 md:h-52 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" 
                 />
             </div>
         </div>

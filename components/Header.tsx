@@ -57,17 +57,29 @@ const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
                 setIsMobileMenuOpen(false);
             }}
           >
-            <div className="relative">
-                <div className="absolute inset-0 bg-sky-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                <div className="bg-white/10 p-1.5 rounded-xl group-hover:bg-white/20 transition-colors border border-white/10 relative">
-                    <img 
-                        src="https://i.ibb.co.com/9HzZKk4Z/Screenshot-2026-01-12-103512.png" 
-                        alt="Logo KMH LOTIM" 
-                        className="w-8 h-8 object-contain rounded-md" 
-                    />
-                </div>
+            <div className="flex gap-2">
+              <div className="relative">
+                  <div className="absolute inset-0 bg-sky-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                  <div className="bg-white/10 p-1.5 rounded-xl group-hover:bg-white/20 transition-colors border border-white/10 relative">
+                      <img 
+                          src="https://i.ibb.co.com/k6cGgdMH/logo-dn.png" 
+                          alt="Logo Dies Natalis" 
+                          className="w-8 h-8 object-contain rounded-md" 
+                      />
+                  </div>
+              </div>
+              <div className="relative">
+                  <div className="bg-white/10 p-1.5 rounded-xl group-hover:bg-white/20 transition-colors border border-white/10 relative">
+                      <img 
+                          src="https://i.ibb.co.com/9HzZKk4Z/Screenshot-2026-01-12-103512.png" 
+                          alt="Logo KMH LOTIM" 
+                          className="w-8 h-8 object-contain rounded-md" 
+                      />
+                  </div>
+              </div>
             </div>
-            <div className="flex flex-col">
+            
+            <div className="flex flex-col ml-1">
               <h1 className="font-bold text-lg leading-tight tracking-wide font-sans">DIES NATALIS VI</h1>
               <span className="text-[10px] uppercase text-sky-200 tracking-[0.2em]">KMH LOTIM UNRAM</span>
             </div>

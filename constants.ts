@@ -44,7 +44,7 @@ export const ACTIVITIES: Activity[] = [
     category: 'Akademik',
     description: 'Diskusi ilmiah relevan dengan isu hukum aktual untuk meningkatkan wawasan masyarakat.',
     fullDescription: 'Seminar ini akan diselenggarakan dalam bentuk diskusi panel yang menghadirkan pakar hukum terkemuka. Peserta akan diajak membedah isu-isu hukum kontemporer yang selaras dengan tema Dies Natalis. Acara terdiri dari sesi pemaparan materi, diskusi interaktif, dan tanya jawab untuk menggali perspektif hukum yang konstruktif.',
-    imageUrl: 'https://picsum.photos/seed/seminar2/800/600',
+    imageUrl: 'https://i.ibb.co.com/XfZZryWp/Gemini-Generated-Image-5jepx15jepx15jep-1.png',
     location: 'Auditorium FH UNRAM',
     coordinator: 'Khazainu Rahmati Rabbi',
     status: 'Upcoming'
@@ -56,7 +56,7 @@ export const ACTIVITIES: Activity[] = [
     category: 'Kompetisi',
     description: 'Meningkatkan kreativitas dan wawasan siswa/mahasiswa melalui media visual edukatif.',
     fullDescription: 'Kompetisi kreatif yang menantang peserta untuk memvisualisasikan data atau informasi hukum menjadi karya grafis yang menarik dan mudah dipahami. Peserta wajib mengirimkan karya orisinal sesuai tema yang ditentukan. Penilaian didasarkan pada kreativitas, kesesuaian tema, dan efektivitas penyampaian pesan.',
-    imageUrl: 'https://picsum.photos/seed/infografis/800/600',
+    imageUrl: 'https://i.ibb.co.com/FFzh2th/Gemini-Generated-Image-bs7wh4bs7wh4bs7w-2.png',
     location: 'Online / Mataram',
     coordinator: 'Ebin Firmansyah',
     status: 'Upcoming'
@@ -68,7 +68,7 @@ export const ACTIVITIES: Activity[] = [
     category: 'Sosial',
     description: 'Aksi nyata kepedulian sosial mahasiswa hukum terhadap kesejahteraan anak panti asuhan.',
     fullDescription: 'Kunjungan sosial ke panti asuhan di wilayah Lombok Timur sebagai wujud kepedulian mahasiswa hukum. Rangkaian acara meliputi silaturahmi, doa bersama, fun games sederhana untuk menghibur anak-anak, serta penyerahan bantuan berupa sembako dan santunan dana pendidikan.',
-    imageUrl: 'https://picsum.photos/seed/santunan/800/600',
+    imageUrl: 'https://i.ibb.co.com/b5kKd9Q6/Gemini-Generated-Image-dsqvdtdsqvdtdsqv-1.png',
     location: 'Lombok Timur',
     coordinator: 'Lidiya Sera Warni',
     status: 'Upcoming'
@@ -80,7 +80,7 @@ export const ACTIVITIES: Activity[] = [
     category: 'Celebration',
     description: 'Seremonial penutup menampilkan kreativitas, budaya, dan penghargaan.',
     fullDescription: 'Perayaan puncak Dies Natalis KMH LOTIM ke-6 yang dikemas dalam nuansa kebudayaan dan kekeluargaan. Agenda acara mencakup penampilan seni tradisional Gendang Beleq, pertunjukan Peresean, potong tumpeng, penganugerahan pemenang lomba, serta pentas seni dari anggota dan alumni.',
-    imageUrl: 'https://picsum.photos/seed/malam-puncak/800/600',
+    imageUrl: 'https://i.ibb.co.com/3K9ZXHW/MC-acara.jpg',
     location: 'Taman Budaya',
     coordinator: 'Yusron Kholit Mazit',
     status: 'Upcoming'
@@ -108,7 +108,7 @@ export const COMMITTEE: CommitteeMember[] = [
     id: 'pj', 
     name: 'Lalu Isfan Aulia Rahman', 
     role: 'Penanggung Jawab',
-    imageUrl: 'https://picsum.photos/seed/pj1/400/400'
+    imageUrl: 'https://i.ibb.co.com/YBh2Mmmd/foto-kak-ketum.png'
   },
   { 
     id: 'ketua', 
@@ -225,13 +225,13 @@ export const COMMITTEE: CommitteeMember[] = [
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  // --- DN 6 (CURRENT YEAR) - Updated captions to "Pra Acara" ---
-  { id: '1', type: 'image', url: 'https://i.ibb.co.com/BVmwH6BT/foto-2.jpg', caption: 'Pra Acara - Panitia Inti', category: 'DN6' },
-  { id: '2', type: 'image', url: 'https://i.ibb.co.com/3yfZ4jsM/foto-1.jpg', caption: 'Pra Acara - Rapat Koordinasi', category: 'DN6' },
-  { id: '3', type: 'image', url: 'https://i.ibb.co.com/KxG7c9Lb/foto-3.jpg', caption: 'Pra Acara - Persiapan Lapangan', category: 'DN6' },
-  { id: '4', type: 'image', url: 'https://i.ibb.co.com/B5mG5y3Z/foto-4.jpg', caption: 'Pra Acara - Behind The Scene', category: 'DN6' },
-  { id: '5', type: 'image', url: 'https://i.ibb.co.com/ds8dNryc/foto-5.jpg', caption: 'Pra Acara - Briefing Divisi', category: 'DN6' },
-  { id: '6', type: 'image', url: 'https://i.ibb.co.com/GfScrpqs/foto-6.jpg', caption: 'Pra Acara - Kebersamaan Panitia', category: 'DN6' },
+  // --- DN 6 (CURRENT YEAR) - Updated captions to "Pra Acara - Foto Kepanitiaan" ---
+  { id: '1', type: 'image', url: 'https://i.ibb.co.com/BVmwH6BT/foto-2.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
+  { id: '2', type: 'image', url: 'https://i.ibb.co.com/3yfZ4jsM/foto-1.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
+  { id: '3', type: 'image', url: 'https://i.ibb.co.com/KxG7c9Lb/foto-3.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
+  { id: '4', type: 'image', url: 'https://i.ibb.co.com/B5mG5y3Z/foto-4.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
+  { id: '5', type: 'image', url: 'https://i.ibb.co.com/ds8dNryc/foto-5.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
+  { id: '6', type: 'image', url: 'https://i.ibb.co.com/GfScrpqs/foto-6.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
   
   // --- DN 5 (PAST YEAR - FLASHBACK) - Updated with new links and captions ---
   { id: 'dn5-1', type: 'image', url: 'https://i.ibb.co.com/MygTsVxz/baca-puisi.jpg', caption: 'Pembacaan Puisi', category: 'DN5' },

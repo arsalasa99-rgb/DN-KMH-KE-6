@@ -44,7 +44,7 @@ const ContactView: React.FC = () => {
       },
       {
           question: "Siapa saja yang boleh mengikuti rangkaian acara?",
-          answer: "Rangkaian acara terbuka untuk umum, khususnya mahasiswa Fakultas Hukum Universitas Mataram, alumni KMH LOTIM, serta masyarakat umum yang berminat pada Seminar Hukum dan acara puncak."
+          answer: "Rangkaian acara terbuka untuk umum, namun khusus untuk Seminar Hukum Nasional diperuntukkan bagi Internal KMH LOTIM."
       },
       {
           question: "Bagaimana cara mendaftar Lomba Desain Infografis?",
@@ -52,19 +52,15 @@ const ContactView: React.FC = () => {
       },
       {
           question: "Apakah Seminar Hukum Nasional berbayar?",
-          answer: "Seminar Hukum Nasional dikenakan biaya kontribusi (HTM) yang terjangkau, sudah termasuk sertifikat digital, snack, dan materi dari narasumber ahli. Detail harga akan diinfokan di Instagram."
+          answer: "Tidak. Seminar Hukum Nasional ini diselenggarakan khusus untuk internal anggota KMH LOTIM dan tidak dipungut biaya (Gratis)."
       },
       {
           question: "Kapan dan di mana malam puncak dilaksanakan?",
-          answer: "Malam puncak Dies Natalis ke-6 akan dilaksanakan pada tanggal 2 April 2026 bertempat di Taman Budaya. Acara ini akan menampilkan pentas seni budaya dan penganugerahan pemenang lomba."
+          answer: "Malam puncak Dies Natalis ke-6 akan dilaksanakan pada tanggal 1 April 2026 bertempat di Taman Budaya. Acara ini akan menampilkan pentas seni budaya dan penganugerahan pemenang lomba."
       },
       {
           question: "Bagaimana jika saya ingin berdonasi untuk Santunan Panti Asuhan?",
           answer: "Kami sangat mengapresiasi donasi Anda. Donasi dapat berupa uang tunai melalui transfer ke rekening panitia atau barang sembako yang dapat diantar langsung ke Sekretariat Panitia."
-      },
-      {
-          question: "Apakah peserta mendapatkan sertifikat?",
-          answer: "Ya, seluruh peserta Seminar Hukum dan pemenang lomba akan mendapatkan e-Sertifikat resmi yang ditandatangani oleh panitia dan pihak Fakultas Hukum."
       }
   ];
 
@@ -161,8 +157,7 @@ const ContactView: React.FC = () => {
                 <MapPin className="text-navy-500" /> Sekretariat
               </h3>
               <address className="not-italic text-slate-600 space-y-4 text-sm leading-relaxed">
-                <p className="font-medium text-navy-900">Gedung PKM Fakultas Hukum</p>
-                <p>Universitas Mataram</p>
+                <p className="font-medium text-navy-900">Universitas Mataram</p>
                 <p>Jl. Majapahit No. 62, Gomong, Kec. Selaparang, Kota Mataram, Nusa Tenggara Barat 83125</p>
                 
                 <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">

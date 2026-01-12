@@ -31,6 +31,10 @@
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'spin-slow': 'spin 12s linear infinite',
               'bounce-slight': 'bounceSlight 2s infinite',
+              'ken-burns': 'kenBurns 20s ease-out infinite alternate',
+              'fade-in-up': 'fadeInUp 1s ease-out forwards',
+              'blur-in': 'blurIn 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards',
+              'tracking-in': 'trackingIn 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards',
             },
             keyframes: {
               blob: {
@@ -46,6 +50,23 @@
               bounceSlight: {
                   '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
                   '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' }
+              },
+              kenBurns: {
+                '0%': { transform: 'scale(1)' },
+                '100%': { transform: 'scale(1.2)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              blurIn: {
+                '0%': { opacity: '0', filter: 'blur(10px)', transform: 'scale(0.9)' },
+                '100%': { opacity: '1', filter: 'blur(0)', transform: 'scale(1)' },
+              },
+              trackingIn: {
+                '0%': { letterSpacing: '-0.5em', opacity: '0' },
+                '40%': { opacity: '0.6' },
+                '100%': { letterSpacing: '0.1em', opacity: '1' },
               }
             }
           }

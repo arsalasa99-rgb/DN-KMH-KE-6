@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
+import SplashScreen from './components/SplashScreen';
 import HomeView from './views/HomeView';
 import ActivitiesView from './views/ActivitiesView';
 import ActivityDetailView from './views/ActivityDetailView';
@@ -12,6 +13,7 @@ import { View, Activity } from './types';
 import { Instagram } from 'lucide-react';
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [currentView, setCurrentView] = useState<View>(View.HOME);
   const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null);
 
@@ -61,6 +63,10 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-800">
+      
+      {/* SPLASH SCREEN */}
+      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+
       <Header currentView={currentView} onNavigate={handleNavigate} />
       
       <main className="flex-grow">

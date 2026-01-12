@@ -4,7 +4,6 @@ import HomeView from './views/HomeView';
 import ActivitiesView from './views/ActivitiesView';
 import ActivityDetailView from './views/ActivityDetailView';
 import TimelineView from './views/TimelineView';
-import DocumentsView from './views/DocumentsView';
 import GalleryView from './views/GalleryView';
 import CommitteeView from './views/CommitteeView';
 import ContactView from './views/ContactView';
@@ -47,8 +46,6 @@ function App() {
         ) : <ActivitiesView onSelectActivity={handleSelectActivity} />;
       case View.TIMELINE:
         return <TimelineView />;
-      case View.DOCUMENTS:
-        return <DocumentsView />;
       case View.GALLERY:
         return <GalleryView />;
       case View.COMMITTEE:
@@ -95,7 +92,7 @@ function App() {
               <ul className="space-y-2 text-sm text-slate-300">
                 <li><button onClick={() => handleNavigate(View.ACTIVITIES)} className="hover:text-white transition-colors">Kegiatan</button></li>
                 <li><button onClick={() => handleNavigate(View.RAB)} className="hover:text-white transition-colors">Anggaran (RAB)</button></li>
-                <li><button onClick={() => handleNavigate(View.DOCUMENTS)} className="hover:text-white transition-colors">Dokumen</button></li>
+                <li><button onClick={() => handleNavigate(View.TIMELINE)} className="hover:text-white transition-colors">Timeline</button></li>
               </ul>
             </div>
             <div>

@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Document } from '../types';
 import { DOCUMENTS } from '../constants';
-import { Search, FileText, Upload, Eye, Trash2, Plus, Download, Globe, HardDrive, AlertTriangle } from 'lucide-react';
+import { Search, FileText, Upload, Eye, Trash2, Plus, Download, Globe, HardDrive, AlertTriangle, Info } from 'lucide-react';
 
 const DocumentsView: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState<string | null>(null);
   
-  // STATE 1: Dokumen User (Diambil dari Local Storage)
+  // STATE 1: Dokumen User (Diambil dari Local Storage) - HANYA LOKAL
   const [userDocs, setUserDocs] = useState<Document[]>(() => {
     try {
       const savedDocs = localStorage.getItem('kmh_user_uploads_v2');
@@ -57,7 +57,7 @@ const DocumentsView: React.FC = () => {
               type: file.name.split('.').pop()?.toUpperCase() || 'FILE',
               date: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),
               size: (file.size / 1024 / 1024).toFixed(2) + ' MB',
-              category: 'Dokumen Publik', // User requested uploaded files to be public
+              category: 'Upload Lokal (Hanya di HP ini)', // Ubah label agar user paham
               url: base64String // Simpan Base64 agar persisten
             };
             
@@ -69,7 +69,7 @@ const DocumentsView: React.FC = () => {
                 
                 setUserDocs(prev => [newDoc, ...prev]);
             } catch (quotaError) {
-                alert('Penyimpanan browser penuh! File tidak dapat disimpan permanen.');
+                alert('Penyimpanan browser penuh! File tidak dapat disimpan.');
             }
 
         } catch (err) {
@@ -91,7 +91,13 @@ const DocumentsView: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
-      if (confirm('Apakah Anda yakin ingin menghapus dokumen ini dari penyimpanan publik?')) {
+      // Prevent deleting official docs (those from constants.ts don't have 'user-' prefix)
+      if (!id.startsWith('user-')) {
+        alert("Dokumen resmi tidak dapat dihapus dari halaman ini.");
+        return;
+      }
+
+      if (confirm('Apakah Anda yakin ingin menghapus dokumen ini dari penyimpanan browser?')) {
           setUserDocs(prev => prev.filter(doc => doc.id !== id));
       }
   };
@@ -99,7 +105,7 @@ const DocumentsView: React.FC = () => {
   const handleView = (doc: Document) => {
       if(doc.url) {
         if(doc.url === '#') {
-            alert('File ini belum tersedia untuk dilihat.');
+            alert('File ini belum tersedia secara publik. Silakan hubungi panitia untuk link akses.');
             return;
         }
         
@@ -127,7 +133,7 @@ const DocumentsView: React.FC = () => {
          a.click();
          document.body.removeChild(a);
      } else {
-         alert('Link download tidak tersedia.');
+         alert('Link download belum tersedia.');
      }
   };
 
@@ -173,10 +179,24 @@ const DocumentsView: React.FC = () => {
                     className="flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-md w-full sm:w-auto justify-center"
                  >
                      <Plus size={20} />
-                     Unggah File
+                     Upload Lokal
                  </button>
              </div>
           </div>
+        </div>
+
+        {/* INFO BANNER - Penjelasan Local Storage */}
+        <div className="bg-sky-50 text-sky-900 p-4 rounded-lg mb-6 flex items-start gap-3 border border-sky-200">
+            <Info size={24} className="flex-shrink-0 mt-0.5" />
+            <div>
+                <h4 className="font-bold text-sm">Penting: Fitur Upload Lokal</h4>
+                <p className="text-xs md:text-sm mt-1 leading-relaxed">
+                    Dokumen yang Anda upload melalui tombol <strong>"Upload Lokal"</strong> hanya tersimpan di 
+                    browser perangkat ini (Local Storage). Dokumen tersebut <strong>TIDAK</strong> akan muncul 
+                    di perangkat lain atau di website publik. Untuk menambahkan dokumen resmi permanen, 
+                    silakan hubungi admin web untuk update kode sistem.
+                </p>
+            </div>
         </div>
 
         {error && (
@@ -202,11 +222,12 @@ const DocumentsView: React.FC = () => {
               <tbody>
                 {filteredDocs.length > 0 ? (
                   filteredDocs.map((doc) => {
+                      const isLocal = doc.id.startsWith('user-');
                       return (
                         <tr key={doc.id} className="border-b border-slate-100 hover:bg-navy-50 transition-colors group">
                         <td className="p-4">
                             <div className="flex items-center">
-                            <div className="p-2 rounded-lg mr-3 bg-navy-100 text-navy-700">
+                            <div className={`p-2 rounded-lg mr-3 ${isLocal ? 'bg-amber-100 text-amber-700' : 'bg-navy-100 text-navy-700'}`}>
                                 <FileText size={20} />
                             </div>
                             <div>
@@ -225,9 +246,15 @@ const DocumentsView: React.FC = () => {
                             </span>
                         </td>
                         <td className="p-4">
-                            <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">
-                                <Globe size={12} /> Publik
-                            </span>
+                            {isLocal ? (
+                                <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded-full border border-amber-100">
+                                    <HardDrive size={12} /> Lokal (HP Ini)
+                                </span>
+                            ) : (
+                                <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">
+                                    <Globe size={12} /> Publik
+                                </span>
+                            )}
                         </td>
                         <td className="p-4 text-sm text-slate-500 font-mono">{doc.size}</td>
                         <td className="p-4 text-right">
@@ -246,13 +273,15 @@ const DocumentsView: React.FC = () => {
                                 >
                                     <Eye size={20} />
                                 </button>
-                                <button 
-                                    onClick={() => handleDelete(doc.id)}
-                                    className="text-red-400 hover:text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors"
-                                    title="Hapus"
-                                >
-                                    <Trash2 size={20} />
-                                </button>
+                                {isLocal && (
+                                    <button 
+                                        onClick={() => handleDelete(doc.id)}
+                                        className="text-red-400 hover:text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors"
+                                        title="Hapus"
+                                    >
+                                        <Trash2 size={20} />
+                                    </button>
+                                )}
                             </div>
                         </td>
                         </tr>

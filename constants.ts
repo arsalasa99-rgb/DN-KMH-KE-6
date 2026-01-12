@@ -1,7 +1,6 @@
 import { Activity, CommitteeMember, Document, GalleryItem, TimelineEvent } from './types';
 
 // --- GENERATED PROPOSAL CONTENT REMOVED ---
-// User requested to remove the dummy file.
 export const PROPOSAL_HTML_CONTENT = ``; 
 
 export const DIVISION_DETAILS = [
@@ -88,8 +87,20 @@ export const ACTIVITIES: Activity[] = [
   }
 ];
 
-// Empty default documents as per request
-export const DOCUMENTS: Document[] = [];
+// --- DOKUMEN PUBLIK (PERMANEN DI KODINGAN) ---
+// Agar terbaca di Vercel/semua device, masukkan link Google Drive atau path file public di sini.
+export const DOCUMENTS: Document[] = [
+  {
+    id: 'prop-dn6-official',
+    title: 'PROPOSAL PENDANAAN DIES NATALIS KMH KE-6',
+    type: 'PDF',
+    date: '29 Desember 2025',
+    size: '4.8 MB',
+    category: 'Proposal Resmi',
+    // GANTI '#' dengan link Google Drive atau taruh file di folder public dan tulis '/nama-file.pdf'
+    url: '#' 
+  }
+];
 
 export const COMMITTEE: CommitteeMember[] = [
   // --- BPH (BADAN PENGURUS HARIAN) ---

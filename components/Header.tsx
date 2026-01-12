@@ -24,7 +24,6 @@ const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
     { label: 'RAB', view: View.RAB },
     { label: 'Kegiatan', view: View.ACTIVITIES },
     { label: 'Timeline', view: View.TIMELINE },
-    { label: 'Dokumen', view: View.DOCUMENTS },
     { label: 'Galeri', view: View.GALLERY },
     { label: 'Panitia', view: View.COMMITTEE },
     { label: 'Kontak', view: View.CONTACT },

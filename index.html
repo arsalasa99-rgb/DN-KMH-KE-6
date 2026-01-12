@@ -16,35 +16,36 @@
             },
             colors: {
               navy: {
+                50: '#f0f9ff',
+                100: '#e0f2fe',
                 800: '#1e3a8a',
-                900: '#11385d', // Requested Hex Code
-                950: '#0a2339', // Darker variant for contrast/headers
+                900: '#11385d', 
+                950: '#0a2339', 
               },
-              primary: '#11385d', // Mapping primary to requested hex
-              accent: '#38bdf8', // Sky 400 for highlights
+              primary: '#11385d',
+              accent: '#38bdf8',
             },
             animation: {
-              fadeIn: 'fadeIn 0.5s ease-out forwards',
-              slideUp: 'slideUp 0.8s ease-out forwards',
-              slideDown: 'slideDown 0.3s ease-out forwards',
-              slideInRight: 'slideInRight 0.5s ease-out forwards',
+              blob: 'blob 7s infinite',
+              float: 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'spin-slow': 'spin 12s linear infinite',
+              'bounce-slight': 'bounceSlight 2s infinite',
             },
             keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
               },
-              slideUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
               },
-              slideDown: {
-                '0%': { opacity: '0', transform: 'translateY(-10px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              slideInRight: {
-                '0%': { opacity: '0', transform: 'translateX(20px)' },
-                '100%': { opacity: '1', transform: 'translateX(0)' },
+              bounceSlight: {
+                  '0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8,0,1,1)' },
+                  '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0,0,0.2,1)' }
               }
             }
           }
@@ -52,39 +53,79 @@
       }
     </script>
     <style>
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
+      html { scroll-behavior: smooth; }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #f1f5f9; }
+      ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+      
+      /* SCROLL REVEAL ANIMATION CLASSES */
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        will-change: opacity, transform;
       }
-      /* Custom scrollbar for academic feel */
-      ::-webkit-scrollbar {
-        width: 8px;
+      
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
       }
-      ::-webkit-scrollbar-track {
-        background: #f1f5f9;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #94a3b8;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #64748b;
-      }
+
+      /* Stagger delays for children */
+      .reveal.delay-100 { transition-delay: 0.1s; }
+      .reveal.delay-200 { transition-delay: 0.2s; }
+      .reveal.delay-300 { transition-delay: 0.3s; }
+      .reveal.delay-400 { transition-delay: 0.4s; }
+      .reveal.delay-500 { transition-delay: 0.5s; }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "vite": "https://esm.sh/vite@^7.3.1",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1"
   }
 }
 </script>
+<script>
+  // Global Intersection Observer for Scroll Animations
+  document.addEventListener("DOMContentLoaded", () => {
+    const setupObserver = () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      // Find all reveal elements
+      document.querySelectorAll('.reveal:not(.active)').forEach((el) => {
+        observer.observe(el);
+      });
+    };
+
+    // Run initially
+    setupObserver();
+
+    // Run on DOM changes (for React)
+    const mutationObserver = new MutationObserver(() => {
+        setupObserver();
+    });
+    
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+  });
+</script>
 </head>
-  <body class="bg-white text-slate-800 antialiased font-sans">
+  <body class="bg-slate-50 text-slate-800 antialiased font-sans overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

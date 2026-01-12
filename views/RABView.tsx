@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calculator, Wallet, Award, Gift, PartyPopper, ChevronRight } from 'lucide-react';
+import { Calculator, Wallet, Award, Gift, PartyPopper } from 'lucide-react';
 
 // Helper component for Mobile Card Item
 const MobileItemCard = ({ no, name, unit, price, total, isHeader = false }: any) => (
@@ -22,15 +22,15 @@ const MobileItemCard = ({ no, name, unit, price, total, isHeader = false }: any)
 
 const RABView: React.FC = () => {
   return (
-    <div className="pt-24 pb-20 bg-slate-50 min-h-screen animate-fadeIn">
+    <div className="pt-24 pb-20 bg-slate-50 min-h-screen">
       <div className="container mx-auto px-4 md:px-6">
         
         {/* Header Section */}
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-12 reveal">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-navy-100 text-navy-900 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
                 <Calculator size={14} /> Transparansi Anggaran
             </div>
-            <h2 className="text-2xl md:text-5xl font-bold text-navy-900 mb-4">Rancangan Anggaran Biaya</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-navy-900 mb-4">Rancangan Anggaran Biaya</h2>
             <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto">
                 Rincian estimasi biaya untuk setiap rangkaian kegiatan Dies Natalis KMH LOTIM ke-6.
             </p>
@@ -39,14 +39,13 @@ const RABView: React.FC = () => {
         <div className="space-y-8 md:space-y-12 max-w-5xl mx-auto">
             
             {/* 1. SEMINAR HUKUM */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden reveal" style={{ transitionDelay: '100ms' }}>
                 <div className="bg-navy-900 px-4 md:px-6 py-4 flex items-center gap-3">
                     <div className="p-2 bg-white/10 rounded-lg">
                         <Wallet className="text-amber-400" size={20} />
                     </div>
                     <div>
                         <h3 className="text-lg md:text-xl font-bold text-white">1. Seminar Hukum</h3>
-                        <p className="text-navy-200 text-xs md:hidden">Ketuk untuk detail</p>
                     </div>
                 </div>
                 
@@ -195,7 +194,7 @@ const RABView: React.FC = () => {
             </div>
 
             {/* 2. SANTUNAN PANTI ASUHAN */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden reveal" style={{ transitionDelay: '200ms' }}>
                 <div className="bg-navy-900 px-4 md:px-6 py-4 flex items-center gap-3">
                     <div className="p-2 bg-white/10 rounded-lg">
                         <Gift className="text-amber-400" size={20} />
@@ -264,7 +263,7 @@ const RABView: React.FC = () => {
             </div>
 
             {/* 3. SERANGKAIAN LOMBA DN */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden reveal" style={{ transitionDelay: '300ms' }}>
                 <div className="bg-navy-900 px-4 md:px-6 py-4 flex items-center gap-3">
                     <div className="p-2 bg-white/10 rounded-lg">
                         <Award className="text-amber-400" size={20} />
@@ -329,7 +328,7 @@ const RABView: React.FC = () => {
             </div>
 
             {/* 4. ACARA SEREMONIAL PUNCAK */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden reveal" style={{ transitionDelay: '400ms' }}>
                 <div className="bg-navy-900 px-4 md:px-6 py-4 flex items-center gap-3">
                     <div className="p-2 bg-white/10 rounded-lg">
                         <PartyPopper className="text-amber-400" size={20} />
@@ -414,8 +413,8 @@ const RABView: React.FC = () => {
             </div>
 
             {/* TOTAL REKAPITULASI */}
-            <div className="bg-gradient-to-br from-navy-900 to-navy-800 text-white rounded-3xl shadow-2xl overflow-hidden border border-navy-700 relative">
-                 <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+            <div className="bg-gradient-to-br from-navy-900 to-navy-800 text-white rounded-3xl shadow-2xl overflow-hidden border border-navy-700 relative reveal delay-500">
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-20 -mt-20 blur-3xl animate-blob"></div>
                  
                  <div className="p-6 md:p-12 text-center relative z-10">
                     <h3 className="text-xl md:text-4xl font-bold mb-6 md:mb-8 leading-tight">TOTAL RANCANGAN<br className="md:hidden"/> ANGGARAN BIAYA</h3>
@@ -439,7 +438,7 @@ const RABView: React.FC = () => {
                     </div>
 
                     {/* DESKTOP RECAP VIEW */}
-                    <div className="hidden md:block max-w-3xl mx-auto bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 mb-8">
+                    <div className="hidden md:block max-w-3xl mx-auto bg-white/10 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 mb-8 hover:bg-white/15 transition-colors">
                         <table className="w-full text-left">
                             <thead className="bg-navy-950/50 text-amber-400 font-bold uppercase text-sm tracking-wider">
                                 <tr>
@@ -466,7 +465,7 @@ const RABView: React.FC = () => {
                     </div>
 
                     {/* GRAND TOTAL - Responsive */}
-                    <div className="bg-amber-500 text-navy-900 rounded-xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg mx-auto max-w-3xl">
+                    <div className="bg-amber-500 text-navy-900 rounded-xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-4 shadow-lg mx-auto max-w-3xl hover:scale-105 transition-transform duration-300">
                         <span className="text-lg md:text-2xl font-bold uppercase tracking-wider text-center md:text-left">Total Anggaran<br className="md:hidden"/> Keseluruhan</span>
                         <span className="text-3xl md:text-4xl font-black font-mono">Rp23.797.000</span>
                     </div>

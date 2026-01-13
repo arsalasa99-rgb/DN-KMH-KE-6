@@ -115,7 +115,7 @@ const DocumentsView: React.FC = () => {
              if (doc.type === 'PDF') {
                  win.document.write(`<iframe src="${doc.url}" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>`);
              } else if (['JPG', 'JPEG', 'PNG'].includes(doc.type)) {
-                 win.document.write(`<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#f0f0f0;"><img src="${doc.url}" style="max-width:100%;max-height:100%;box-shadow:0 0 20px rgba(0,0,0,0.1);"/></div>`);
+                 win.document.write(`<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#0f172a;"><img src="${doc.url}" style="max-width:100%;max-height:100%;box-shadow:0 0 20px rgba(0,0,0,0.5);"/></div>`);
              } else {
                  // Fallback untuk file lain
                  win.document.write(`<iframe src="${doc.url}" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>`);
@@ -142,12 +142,22 @@ const DocumentsView: React.FC = () => {
   });
 
   return (
-    <div className="pt-24 pb-20 bg-slate-50 min-h-screen animate-fadeIn">
-      <div className="container mx-auto px-4 md:px-6">
+    <div className="pt-24 pb-20 bg-navy-950 min-h-screen animate-fadeIn relative">
+      {/* Background Image Setup */}
+      <div className="absolute inset-0 z-0 opacity-40">
+        <div className="w-full h-full relative">
+            <img src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" className="w-full h-screen object-cover object-center absolute top-0 left-0" />
+            <img src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" className="w-full h-screen object-cover object-center absolute top-[100vh] left-0" />
+        </div>
+        <div className="fixed inset-0 bg-navy-950/85 mix-blend-multiply"></div>
+        <div className="fixed inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/80"></div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-navy-900">Arsip Digital & Cloud</h2>
-            <p className="text-slate-500 mt-1 flex items-center gap-2">
+            <h2 className="text-3xl font-bold text-white">Arsip Digital & Cloud</h2>
+            <p className="text-slate-400 mt-1 flex items-center gap-2">
                 <Globe size={14}/> Dokumen Publik (Open Access)
             </p>
           </div>
@@ -158,11 +168,11 @@ const DocumentsView: React.FC = () => {
                 <input 
                     type="text" 
                     placeholder="Cari dokumen..." 
-                    className="pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-navy-900 w-full sm:w-64"
+                    className="pl-10 pr-4 py-2 bg-white/5 border border-white/10 text-white rounded-lg focus:outline-none focus:border-sky-500 w-full sm:w-64 placeholder-slate-500"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <Search className="absolute left-3 top-2.5 text-slate-400" size={18} />
+                <Search className="absolute left-3 top-2.5 text-slate-500" size={18} />
              </div>
              
              {/* Upload Button */}
@@ -176,7 +186,7 @@ const DocumentsView: React.FC = () => {
                  />
                  <button 
                     onClick={() => fileInputRef.current?.click()}
-                    className="flex items-center gap-2 bg-navy-900 hover:bg-navy-800 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-md w-full sm:w-auto justify-center"
+                    className="flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-sky-600/20 w-full sm:w-auto justify-center"
                  >
                      <Plus size={20} />
                      Upload Lokal
@@ -186,37 +196,36 @@ const DocumentsView: React.FC = () => {
         </div>
 
         {/* INFO BANNER - Penjelasan Local Storage */}
-        <div className="bg-sky-50 text-sky-900 p-4 rounded-lg mb-6 flex items-start gap-3 border border-sky-200">
+        <div className="bg-sky-500/10 text-sky-200 p-4 rounded-lg mb-6 flex items-start gap-3 border border-sky-500/20 backdrop-blur-sm">
             <Info size={24} className="flex-shrink-0 mt-0.5" />
             <div>
-                <h4 className="font-bold text-sm">Penting: Fitur Upload Lokal</h4>
-                <p className="text-xs md:text-sm mt-1 leading-relaxed">
+                <h4 className="font-bold text-sm text-sky-300">Penting: Fitur Upload Lokal</h4>
+                <p className="text-xs md:text-sm mt-1 leading-relaxed text-slate-300">
                     Dokumen yang Anda upload melalui tombol <strong>"Upload Lokal"</strong> hanya tersimpan di 
                     browser perangkat ini (Local Storage). Dokumen tersebut <strong>TIDAK</strong> akan muncul 
-                    di perangkat lain atau di website publik. Untuk menambahkan dokumen resmi permanen, 
-                    silakan hubungi admin web untuk update kode sistem.
+                    di perangkat lain atau di website publik.
                 </p>
             </div>
         </div>
 
         {error && (
-            <div className="bg-red-50 text-red-700 p-4 rounded-lg mb-6 flex items-center gap-3 border border-red-200">
+            <div className="bg-red-500/10 text-red-200 p-4 rounded-lg mb-6 flex items-center gap-3 border border-red-500/20 backdrop-blur-sm">
                 <AlertTriangle size={20} />
                 {error}
             </div>
         )}
 
         {/* Table / List */}
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden min-h-[400px]">
+        <div className="bg-navy-900/50 backdrop-blur-md rounded-xl shadow-xl border border-white/10 overflow-hidden min-h-[400px]">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="bg-slate-50 border-b border-slate-200">
-                  <th className="p-4 font-semibold text-sm text-navy-900 uppercase tracking-wider">Nama Dokumen</th>
-                  <th className="p-4 font-semibold text-sm text-navy-900 uppercase tracking-wider">Tipe</th>
-                  <th className="p-4 font-semibold text-sm text-navy-900 uppercase tracking-wider">Akses</th>
-                  <th className="p-4 font-semibold text-sm text-navy-900 uppercase tracking-wider">Ukuran</th>
-                  <th className="p-4 font-semibold text-sm text-navy-900 uppercase tracking-wider text-right">Aksi</th>
+                <tr className="bg-white/5 border-b border-white/10">
+                  <th className="p-4 font-semibold text-sm text-white uppercase tracking-wider">Nama Dokumen</th>
+                  <th className="p-4 font-semibold text-sm text-white uppercase tracking-wider">Tipe</th>
+                  <th className="p-4 font-semibold text-sm text-white uppercase tracking-wider">Akses</th>
+                  <th className="p-4 font-semibold text-sm text-white uppercase tracking-wider">Ukuran</th>
+                  <th className="p-4 font-semibold text-sm text-white uppercase tracking-wider text-right">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -224,51 +233,51 @@ const DocumentsView: React.FC = () => {
                   filteredDocs.map((doc) => {
                       const isLocal = doc.id.startsWith('user-');
                       return (
-                        <tr key={doc.id} className="border-b border-slate-100 hover:bg-navy-50 transition-colors group">
+                        <tr key={doc.id} className="border-b border-white/5 hover:bg-white/5 transition-colors group">
                         <td className="p-4">
                             <div className="flex items-center">
-                            <div className={`p-2 rounded-lg mr-3 ${isLocal ? 'bg-amber-100 text-amber-700' : 'bg-navy-100 text-navy-700'}`}>
+                            <div className={`p-2 rounded-lg mr-3 ${isLocal ? 'bg-amber-500/20 text-amber-400' : 'bg-sky-500/20 text-sky-400'}`}>
                                 <FileText size={20} />
                             </div>
                             <div>
-                                <span className="font-medium text-slate-700 group-hover:text-navy-900 transition-colors block">
+                                <span className="font-medium text-slate-200 group-hover:text-white transition-colors block">
                                     {doc.title}
                                 </span>
-                                <span className="text-xs text-slate-400">
+                                <span className="text-xs text-slate-500">
                                     {doc.date}
                                 </span>
                             </div>
                             </div>
                         </td>
                         <td className="p-4">
-                            <span className="inline-block px-2 py-1 text-xs bg-slate-100 text-slate-600 rounded-md font-medium">
+                            <span className="inline-block px-2 py-1 text-xs bg-white/10 text-slate-300 rounded-md font-medium border border-white/5">
                                 {doc.type}
                             </span>
                         </td>
                         <td className="p-4">
                             {isLocal ? (
-                                <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-600 bg-amber-50 px-2 py-1 rounded-full border border-amber-100">
+                                <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-300 bg-amber-500/10 px-2 py-1 rounded-full border border-amber-500/20">
                                     <HardDrive size={12} /> Lokal (HP Ini)
                                 </span>
                             ) : (
-                                <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">
+                                <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-300 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20">
                                     <Globe size={12} /> Publik
                                 </span>
                             )}
                         </td>
-                        <td className="p-4 text-sm text-slate-500 font-mono">{doc.size}</td>
+                        <td className="p-4 text-sm text-slate-400 font-mono">{doc.size}</td>
                         <td className="p-4 text-right">
                             <div className="flex items-center justify-end gap-2">
                                 <button 
                                     onClick={() => handleDownload(doc)}
-                                    className="text-green-600 hover:text-green-800 hover:bg-green-50 p-2 rounded-full transition-colors"
+                                    className="text-green-400 hover:text-green-300 hover:bg-green-500/10 p-2 rounded-full transition-colors"
                                     title="Download File"
                                 >
                                     <Download size={20} />
                                 </button>
                                 <button 
                                     onClick={() => handleView(doc)}
-                                    className="text-navy-900 hover:text-navy-700 hover:bg-navy-100 p-2 rounded-full transition-colors"
+                                    className="text-sky-400 hover:text-sky-300 hover:bg-sky-500/10 p-2 rounded-full transition-colors"
                                     title="Lihat Dokumen"
                                 >
                                     <Eye size={20} />
@@ -276,7 +285,7 @@ const DocumentsView: React.FC = () => {
                                 {isLocal && (
                                     <button 
                                         onClick={() => handleDelete(doc.id)}
-                                        className="text-red-400 hover:text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors"
+                                        className="text-red-400 hover:text-red-300 hover:bg-red-500/10 p-2 rounded-full transition-colors"
                                         title="Hapus"
                                     >
                                         <Trash2 size={20} />
@@ -289,11 +298,11 @@ const DocumentsView: React.FC = () => {
                   })
                 ) : (
                     <tr>
-                        <td colSpan={5} className="p-16 text-center text-slate-400 flex flex-col items-center justify-center w-full">
-                            <div className="bg-slate-50 p-6 rounded-full mb-4">
-                                <Upload size={48} className="text-slate-300" />
+                        <td colSpan={5} className="p-16 text-center text-slate-500 flex flex-col items-center justify-center w-full">
+                            <div className="bg-white/5 p-6 rounded-full mb-4">
+                                <Upload size={48} className="text-slate-600" />
                             </div>
-                            <p className="text-lg font-medium text-slate-500">Belum ada dokumen publik.</p>
+                            <p className="text-lg font-medium text-slate-400">Belum ada dokumen publik.</p>
                             <p className="text-sm">Jadilah yang pertama mengunggah file.</p>
                         </td>
                     </tr>

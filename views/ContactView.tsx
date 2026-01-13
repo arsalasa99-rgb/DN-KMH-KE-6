@@ -65,15 +65,25 @@ const ContactView: React.FC = () => {
   ];
 
   return (
-    <div className="pt-24 pb-20 bg-slate-50 min-h-screen overflow-hidden">
+    <div className="pt-24 pb-20 bg-navy-950 min-h-screen overflow-hidden relative">
+      {/* Background Image Setup */}
+      <div className="absolute inset-0 z-0 opacity-40">
+        <div className="w-full h-full relative">
+            <img src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" className="w-full h-screen object-cover object-center absolute top-0 left-0" />
+            <img src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" className="w-full h-screen object-cover object-center absolute top-[100vh] left-0" />
+            <img src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" className="w-full h-screen object-cover object-center absolute top-[200vh] left-0" />
+        </div>
+        <div className="fixed inset-0 bg-navy-950/85 mix-blend-multiply"></div>
+        <div className="fixed inset-0 bg-gradient-to-t from-navy-950 via-transparent to-navy-950/80"></div>
+      </div>
       
       {/* Header Section */}
-      <div className="bg-navy-900 text-white py-12 md:py-16 mb-8 md:mb-12 relative overflow-hidden reveal">
+      <div className="bg-navy-900/50 backdrop-blur-md text-white py-12 md:py-16 mb-8 md:mb-12 relative overflow-hidden reveal border-b border-white/10 z-10">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl animate-blob"></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-sky-500 opacity-10 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl animate-blob delay-500"></div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Pusat Informasi</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">Pusat Informasi</h2>
           <p className="text-slate-300 max-w-2xl mx-auto text-sm md:text-lg">
             Media komunikasi resmi Dies Natalis KMH LOTIM ke-6. <br className="hidden md:block"/>
             Informasi lengkap seputar kegiatan dan partisipasi.
@@ -81,14 +91,14 @@ const ContactView: React.FC = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
           {/* Left Column: Sponsorship & Contact Info */}
           <div className="lg:col-span-1 space-y-8 reveal delay-100">
             
             {/* SPONSORSHIP CARD (HIGHLIGHT) */}
-            <div className="bg-gradient-to-br from-navy-900 to-navy-800 text-white p-5 md:p-6 rounded-2xl shadow-xl border border-navy-700 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+            <div className="bg-gradient-to-br from-navy-900/80 to-sky-900/80 backdrop-blur-md text-white p-5 md:p-6 rounded-2xl shadow-xl border border-white/20 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
                 {/* Decorative Effect */}
                 <div className="absolute top-0 right-0 w-40 h-40 bg-white opacity-5 rounded-full -mr-10 -mt-10 blur-3xl group-hover:opacity-10 transition-opacity"></div>
                 
@@ -100,12 +110,12 @@ const ContactView: React.FC = () => {
                 </p>
 
                 {/* BNI SECTION */}
-                <div className="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/10 mb-4 relative z-10">
+                <div className="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10 mb-4 relative z-10">
                     <div className="flex items-center justify-between mb-2">
                         <span className="text-xs font-bold text-teal-400 uppercase tracking-widest flex items-center gap-1"><CreditCard size={14}/> Bank BNI</span>
                         <button 
                             onClick={handleCopyBNI}
-                            className="text-slate-300 hover:text-white transition-colors flex items-center gap-1 text-xs bg-black/20 px-2 py-1 rounded-md"
+                            className="text-slate-300 hover:text-white transition-colors flex items-center gap-1 text-xs bg-white/10 px-2 py-1 rounded-md"
                             title="Salin Nomor Rekening"
                         >
                             {copiedBNI ? <span className="text-green-400 font-bold">Tersalin</span> : 'Salin'}
@@ -145,30 +155,30 @@ const ContactView: React.FC = () => {
                     href="https://wa.me/6281912856462?text=Halo%20Kak,%20saya%20ingin%20konfirmasi%20transfer%20sponsorship%20untuk%20Dies%20Natalis%20KMH%20LOTIM%20VI..."
                     target="_blank"
                     rel="noreferrer"
-                    className="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-all shadow-lg hover:shadow-green-500/20 relative z-10 text-sm md:text-base hover:scale-105 active:scale-95 border-t-2 border-green-400"
+                    className="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-all shadow-lg hover:shadow-green-500/20 relative z-10 text-sm md:text-base hover:scale-105 active:scale-95 border-t-2 border-green-500"
                 >
                     <span className="flex items-center justify-center gap-2"><Instagram size={18}/> Konfirmasi Transfer WA</span>
                 </a>
             </div>
 
             {/* Main Office Card */}
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <h3 className="text-lg md:text-xl font-bold text-navy-900 mb-6 flex items-center gap-2">
-                <MapPin className="text-navy-500" /> Sekretariat
+            <div className="bg-navy-900/50 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/10 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <h3 className="text-lg md:text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <MapPin className="text-sky-400" /> Sekretariat
               </h3>
-              <address className="not-italic text-slate-600 space-y-4 text-sm leading-relaxed">
-                <p className="font-medium text-navy-900">Universitas Mataram</p>
+              <address className="not-italic text-slate-300 space-y-4 text-sm leading-relaxed">
+                <p className="font-medium text-white">Universitas Mataram</p>
                 <p>Jl. Majapahit No. 62, Gomong, Kec. Selaparang, Kota Mataram, Nusa Tenggara Barat 83125</p>
                 
-                <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-                    <a href="mailto:kmhlotim@unram.ac.id" className="flex items-center gap-3 text-slate-600 hover:text-navy-900 transition-colors group">
-                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-navy-50 transition-colors">
+                <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+                    <a href="mailto:kmhlotim@unram.ac.id" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group">
+                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                             <Mail size={16} />
                         </div>
                         kmhlotim@unram.ac.id
                     </a>
-                    <a href="https://instagram.com/diesnatalis.kmhlotim" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-600 hover:text-navy-900 transition-colors group">
-                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-navy-50 transition-colors">
+                    <a href="https://instagram.com/diesnatalis.kmhlotim" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors group">
+                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                             <Instagram size={16} />
                         </div>
                         @diesnatalis.kmhlotim
@@ -179,21 +189,21 @@ const ContactView: React.FC = () => {
 
             {/* Contact Persons List (Simplified) */}
             <div>
-              <h3 className="text-lg font-bold text-navy-900 mb-4 flex items-center gap-2">
-                <Phone size={20} /> Narahubung Cepat
+              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <Phone size={20} className="text-amber-400" /> Narahubung Cepat
               </h3>
               <div className="space-y-3">
                 {contactPersons.map((person, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between group hover:border-navy-300 transition-all hover:shadow-md">
+                  <div key={idx} className="bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10 flex items-center justify-between group hover:border-white/20 transition-all hover:shadow-md">
                     <div>
                       <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">{person.role}</p>
-                      <p className="font-bold text-navy-900 text-sm md:text-base group-hover:text-sky-600 transition-colors">{person.name}</p>
+                      <p className="font-bold text-white text-sm md:text-base group-hover:text-sky-400 transition-colors">{person.name}</p>
                     </div>
                     <a 
                       href={`https://wa.me/${person.phone.replace(/[^0-9]/g, '')}`} 
                       target="_blank"
                       rel="noreferrer"
-                      className="w-10 h-10 rounded-full bg-green-50 text-green-600 flex items-center justify-center hover:bg-green-600 hover:text-white transition-all shadow-sm hover:scale-110"
+                      className="w-10 h-10 rounded-full bg-green-600/20 text-green-400 flex items-center justify-center hover:bg-green-600 hover:text-white transition-all shadow-sm hover:scale-110"
                       title="Chat WhatsApp"
                     >
                       <Phone size={18} />
@@ -207,15 +217,15 @@ const ContactView: React.FC = () => {
 
           {/* Right Column: FAQ Section */}
           <div className="lg:col-span-2 reveal delay-200">
-            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-10 sticky top-24">
+            <div className="bg-navy-900/50 backdrop-blur-md rounded-2xl shadow-xl border border-white/10 p-6 md:p-10 sticky top-24">
                 
-                <div className="mb-8 flex flex-col md:flex-row md:items-center gap-4 border-b border-slate-100 pb-6">
-                    <div className="w-12 h-12 bg-navy-50 rounded-full text-navy-900 flex items-center justify-center flex-shrink-0 animate-bounce-slight">
+                <div className="mb-8 flex flex-col md:flex-row md:items-center gap-4 border-b border-white/10 pb-6">
+                    <div className="w-12 h-12 bg-white/5 rounded-full text-white flex items-center justify-center flex-shrink-0 animate-bounce-slight border border-white/10">
                         <HelpCircle size={28} />
                     </div>
                     <div>
-                        <h3 className="text-xl md:text-2xl font-bold text-navy-900">Pertanyaan Umum (FAQ)</h3>
-                        <p className="text-slate-500 text-sm mt-1">
+                        <h3 className="text-xl md:text-2xl font-bold text-white">Pertanyaan Umum (FAQ)</h3>
+                        <p className="text-slate-400 text-sm mt-1">
                             Temukan jawaban cepat untuk pertanyaan yang sering diajukan terkait Dies Natalis KMH LOTIM ke-6.
                         </p>
                     </div>
@@ -228,27 +238,27 @@ const ContactView: React.FC = () => {
                             <div 
                                 key={idx} 
                                 className={`border rounded-xl transition-all duration-300 overflow-hidden ${
-                                    isOpen ? 'border-navy-200 bg-navy-50/50 shadow-md transform scale-[1.01]' : 'border-slate-200 hover:border-navy-200 bg-white hover:bg-slate-50'
+                                    isOpen ? 'border-sky-500/50 bg-sky-900/20 shadow-md transform scale-[1.01]' : 'border-white/10 hover:border-white/20 bg-white/5 hover:bg-white/10'
                                 }`}
                             >
                                 <button 
                                     onClick={() => toggleFaq(idx)}
                                     className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
                                 >
-                                    <h4 className={`font-bold text-sm md:text-base pr-4 transition-colors ${isOpen ? 'text-navy-900' : 'text-slate-700'}`}>
+                                    <h4 className={`font-bold text-sm md:text-base pr-4 transition-colors ${isOpen ? 'text-white' : 'text-slate-200'}`}>
                                         {item.question}
                                     </h4>
-                                    <div className={`flex-shrink-0 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-navy-900' : ''}`}>
+                                    <div className={`flex-shrink-0 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-white' : ''}`}>
                                         {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                     </div>
                                 </button>
                                 
                                 <div 
-                                    className={`px-5 text-sm md:text-base text-slate-600 leading-relaxed overflow-hidden transition-all duration-500 ease-in-out ${
+                                    className={`px-5 text-sm md:text-base text-slate-300 leading-relaxed overflow-hidden transition-all duration-500 ease-in-out ${
                                         isOpen ? 'max-h-96 pb-5 opacity-100' : 'max-h-0 opacity-0'
                                     }`}
                                 >
-                                    <div className="pt-2 border-t border-navy-100/50 animate-fadeIn">
+                                    <div className="pt-2 border-t border-white/10 animate-fadeIn">
                                         {item.answer}
                                     </div>
                                 </div>
@@ -257,13 +267,13 @@ const ContactView: React.FC = () => {
                     })}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-100 text-center">
-                    <p className="text-slate-500 text-sm mb-4">Masih memiliki pertanyaan lain?</p>
+                <div className="mt-8 pt-6 border-t border-white/10 text-center">
+                    <p className="text-slate-400 text-sm mb-4">Masih memiliki pertanyaan lain?</p>
                     <a 
                         href="https://instagram.com/diesnatalis.kmhlotim" 
                         target="_blank" 
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-navy-900 font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95 text-sm"
+                        className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95 text-sm border border-white/10"
                     >
                         <Instagram size={18} /> DM Instagram Kami
                     </a>

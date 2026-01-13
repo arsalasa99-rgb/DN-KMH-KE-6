@@ -114,7 +114,7 @@ export const COMMITTEE: CommitteeMember[] = [
     id: 'ketua', 
     name: 'Yusron Kholit Mazit', 
     role: 'Ketua Panitia',
-    imageUrl: 'https://i.ibb.co.com/mrXb5DW0/foto-olit.jpg'
+    imageUrl: 'https://i.ibb.co.com/ycwjgBy7/Whats-App-Image-2026-01-13-at-18-24-53.jpg'
   },
   { 
     id: 'sekretaris', 
@@ -174,7 +174,6 @@ export const COMMITTEE: CommitteeMember[] = [
   },
   { id: 'a-humas-1', name: 'Maitsa Simayani', role: 'Staff', division: 'Divisi Humas' },
   { id: 'a-humas-2', name: 'Yeni Nafila Lita', role: 'Staff', division: 'Divisi Humas' },
-  { id: 'a-humas-3', name: 'Lipia Savitri', role: 'Staff', division: 'Divisi Humas' },
   { id: 'a-humas-4', name: 'Alya Septi Wiliyani', role: 'Staff', division: 'Divisi Humas' },
   { id: 'a-humas-5', name: 'Gelsi Adella Yusman', role: 'Staff', division: 'Divisi Humas' },
   { id: 'a-humas-6', name: 'M. Saufan Firdaus', role: 'Staff', division: 'Divisi Humas' },
@@ -193,7 +192,6 @@ export const COMMITTEE: CommitteeMember[] = [
   { id: 'a-perkap-4', name: 'Lalu Ayyas Thoriq Attsyaqif', role: 'Staff', division: 'Divisi Perlengkapan' },
   { id: 'a-perkap-5', name: 'Azwardi Hasnan', role: 'Staff', division: 'Divisi Perlengkapan' },
   { id: 'a-perkap-6', name: 'Gunawan', role: 'Staff', division: 'Divisi Perlengkapan' },
-  { id: 'a-perkap-7', name: 'Rifki', role: 'Staff', division: 'Divisi Perlengkapan' },
 
   // --- DIVISI MEDIA & DOKUMENTASI ---
   { 
@@ -206,7 +204,7 @@ export const COMMITTEE: CommitteeMember[] = [
   { id: 'a-media-1', name: 'Baiq Shifra Kalila', role: 'Staff', division: 'Divisi Media' },
   { id: 'a-media-2', name: 'Rahmi Ayu', role: 'Staff', division: 'Divisi Media' },
   { id: 'a-media-3', name: 'Tasya Febina', role: 'Staff', division: 'Divisi Media' },
-  { id: 'a-media-4', name: 'Attalya nazya akbar', role: 'Staff', division: 'Divisi Media' },
+  { id: 'a-media-5', name: 'Hanum', role: 'Staff', division: 'Divisi Media' },
 
   // --- DIVISI KEAMANAN ---
   { 
@@ -225,7 +223,18 @@ export const COMMITTEE: CommitteeMember[] = [
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  // --- DN 6 (CURRENT YEAR) - Updated captions to "Pra Acara - Foto Kepanitiaan" ---
+  // --- DN 6 (CURRENT YEAR) ---
+  // NEW PHOTOS
+  { id: 'dn6-new-1', type: 'image', url: 'https://i.ibb.co.com/zHVnLG5j/Whats-App-Image-2026-01-13-at-18-06-17.jpg', caption: 'Latihan Perdana Talent', category: 'DN6' },
+  { id: 'dn6-new-2', type: 'image', url: 'https://i.ibb.co.com/c4tWZD0/Whats-App-Image-2026-01-13-at-18-06-08.jpg', caption: 'Kumpul Perdana Panitia', category: 'DN6' },
+  { id: 'dn6-new-3', type: 'image', url: 'https://i.ibb.co.com/vvXcycNg/Whats-App-Image-2026-01-13-at-18-06-14.jpg', caption: 'Rapat Panitia Inti', category: 'DN6' },
+  { id: 'dn6-new-4', type: 'image', url: 'https://i.ibb.co.com/ndws9R6/Whats-App-Image-2026-01-13-at-18-06-10.jpg', caption: 'Rapat Divisi Keamanan', category: 'DN6' },
+  { id: 'dn6-new-5', type: 'image', url: 'https://i.ibb.co.com/trhDZpD/Whats-App-Image-2026-01-13-at-18-39-18-1.jpg', caption: 'Penyerahan Mandat Kepanitiaan', category: 'DN6' },
+  { id: 'dn6-new-6', type: 'image', url: 'https://i.ibb.co.com/Lhz4dX4k/Whats-App-Image-2026-01-13-at-18-39-18.jpg', caption: 'Sambutan Ketua Panitia Terpilih', category: 'DN6' },
+  { id: 'dn6-new-7', type: 'image', url: 'https://i.ibb.co.com/JW2yXRRv/Whats-App-Image-2026-01-13-at-18-48-34.jpg', caption: 'Latihan Talent & Rapat Panitia (1)', category: 'DN6' },
+  { id: 'dn6-new-8', type: 'image', url: 'https://i.ibb.co.com/SXRQgcds/Whats-App-Image-2026-01-13-at-18-48-33-1.jpg', caption: 'Latihan Talent & Rapat Panitia (2)', category: 'DN6' },
+
+  // EXISTING PHOTOS
   { id: '1', type: 'image', url: 'https://i.ibb.co.com/BVmwH6BT/foto-2.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
   { id: '2', type: 'image', url: 'https://i.ibb.co.com/3yfZ4jsM/foto-1.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
   { id: '3', type: 'image', url: 'https://i.ibb.co.com/KxG7c9Lb/foto-3.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
@@ -233,7 +242,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   { id: '5', type: 'image', url: 'https://i.ibb.co.com/ds8dNryc/foto-5.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
   { id: '6', type: 'image', url: 'https://i.ibb.co.com/GfScrpqs/foto-6.jpg', caption: 'Pra Acara - Foto Kepanitiaan', category: 'DN6' },
   
-  // --- DN 5 (PAST YEAR - FLASHBACK) - Updated with new links and captions ---
+  // --- DN 5 (PAST YEAR) ---
   { id: 'dn5-1', type: 'image', url: 'https://i.ibb.co.com/MygTsVxz/baca-puisi.jpg', caption: 'Pembacaan Puisi', category: 'DN5' },
   { id: 'dn5-2', type: 'image', url: 'https://i.ibb.co.com/FLzTKMWH/foto-bersama.jpg', caption: 'Foto Kebersamaan', category: 'DN5' },
   { id: 'dn5-3', type: 'image', url: 'https://i.ibb.co.com/SDBHt2QS/hiburan-nyanyi.jpg', caption: 'Hiburan Nyanyi oleh Kak Aldi', category: 'DN5' },

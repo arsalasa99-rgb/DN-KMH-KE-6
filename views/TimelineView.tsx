@@ -5,15 +5,30 @@ import { CheckCircle, Clock, Calendar } from 'lucide-react';
 const TimelineView: React.FC = () => {
   return (
     <div className="pt-24 pb-20 bg-navy-950 min-h-screen overflow-hidden relative">
-      {/* Background Image Setup */}
-      <div className="absolute inset-0 z-0">
-        <img 
-            src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" 
-            alt="Timeline Background" 
-            className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-navy-950/85 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950/90"></div>
+      {/* Background Image Setup - Stacked for scrolling */}
+      <div className="absolute inset-0 z-0 opacity-40">
+        <div className="w-full h-full relative">
+            {/* Layer 1 */}
+            <img 
+                src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" 
+                alt="Background Layer 1" 
+                className="w-full h-screen object-cover object-center absolute top-0 left-0"
+            />
+            {/* Layer 2 */}
+            <img 
+                src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" 
+                alt="Background Layer 2" 
+                className="w-full h-screen object-cover object-center absolute top-[100vh] left-0"
+            />
+            {/* Layer 3 */}
+            <img 
+                src="https://i.ibb.co.com/M42sjzx/Gemini-Generated-Image-g3n9ing3n9ing3n9-1.png" 
+                alt="Background Layer 3" 
+                className="w-full h-screen object-cover object-center absolute top-[200vh] left-0"
+            />
+        </div>
+        <div className="fixed inset-0 bg-navy-950/85 mix-blend-multiply"></div>
+        <div className="fixed inset-0 bg-gradient-to-b from-navy-950 via-transparent to-navy-950/90"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
